@@ -5,7 +5,7 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
     // 默认Host地址
-    'app_host'               => 'http://www.thinkphp.net/',
+    'app_host'               => '',
     // 应用调试模式
     'app_debug'              => false,
     // 应用Trace
@@ -155,6 +155,8 @@ return [
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '',
+    // 是否记录trace信息到日志
+    'record_trace'           => false,
 
     // +----------------------------------------------------------------------
     // | 日志设置

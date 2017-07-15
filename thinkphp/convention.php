@@ -5,7 +5,7 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
     // 默认Host地址
-    'app_host'               => 'http://www.yhlyl.com:8090',
+    'app_host'               => 'http://www.thinkphp.net/',
     // 应用调试模式
     'app_debug'              => false,
     // 应用Trace

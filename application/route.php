@@ -8,7 +8,14 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+use think\Route;
+//多级控制器
+// 注册路由到index模块的News控制器的read操作
+//Route::rule('new/:id','index/News/read');
+//http://www.thinkphp.net/api 代替http://www.thinkphp.net/home/api.Export/index
+Route::rule('api','home/api.Export/index');
+Route::rule('web','home/web.ExportData/index');
+//Route::get('api','home/api.Export/index');
 return [
     '__pattern__' => [
         'name' => '\w+',

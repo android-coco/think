@@ -44,6 +44,7 @@ trait Jump
         if (is_null($url) && isset($_SERVER["HTTP_REFERER"])) {
             $url = $_SERVER["HTTP_REFERER"];
         } elseif ('' !== $url) {
+            //查找 "php" 在字符串中第一次出现的位置：
             $url = (strpos($url, '://') || 0 === strpos($url, '/')) ? $url : Url::build($url);
         }
         $result = [

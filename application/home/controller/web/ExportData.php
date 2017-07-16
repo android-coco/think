@@ -19,9 +19,9 @@ class ExportData
     {
         $currdData = date("Y-m-d");
         $start = empty(\think\Request::instance()
-            ->has('start_time', 'get', true)) ? $currdData : input('?get.start_time');
+            ->has('start_time', 'get', true)) ? $currdData : input('start_time');
         $end = empty(\think\Request::instance()
-            ->has('end_time', 'get', true)) ? $currdData : input('?get.end_time');
+            ->has('end_time', 'get', true)) ? $currdData : input('end_time');
         $model = new \app\home\model\ExportModel();
         $name = $model->sales($start, $end, $page);
         $data['info'] = $name['info'];
@@ -42,11 +42,11 @@ class ExportData
         //http://www.thinkphp.net/home/web.ExportData/ajaxdata?page=79&start_time=2017-07-15&end_time=2017-07-15
         $currdData = date("Y-m-d");
         $start = empty(\think\Request::instance()
-            ->has('start_time', 'get', true)) ? $currdData : input('get.start_time');
+            ->has('start_time', 'get', true)) ? $currdData : input('start_time');
         $end = empty(\think\Request::instance()
-            ->has('end_time', 'get', true)) ? $currdData : input('get.end_time');
+            ->has('end_time', 'get', true)) ? $currdData : input('end_time');
         $page = empty(\think\Request::instance()
-            ->has('page', 'get', true)) ? 1 : input('get.page');
+            ->has('page', 'get', true)) ? 1 : input('page');
         $model = new \app\home\model\ExportModel();
         $data = $model->sales($start, $end, $page);
 
@@ -66,9 +66,9 @@ class ExportData
     {
         $currdData = date("Y-m-d");
         $start = empty(\think\Request::instance()
-            ->has('start_time', 'get', true)) ? $currdData : input('get.start_time');
+            ->has('start_time', 'get', true)) ? $currdData : input('start_time');
         $end = empty(\think\Request::instance()
-            ->has('end_time', 'get', true)) ? $currdData : input('get.end_time');
+            ->has('end_time', 'get', true)) ? $currdData : input('end_time');
         $model = new \app\home\model\ExportModel();
         $data = $model->sales($start, $end,'all');
 //        dump($data);die();

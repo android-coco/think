@@ -70,7 +70,7 @@ class ExportData
         $end = empty(\think\Request::instance()
             ->has('end_time', 'get', true)) ? $currdData : input('get.end_time');
         $model = new \app\home\model\ExportModel();
-        $data = $model->sales($start, $end, '','all');
+        $data = $model->sales($start, $end,'all');
 //        dump($data);die();
         $header = array('订单详情id', '订单id', '菜品id', '总数量', '已取餐数量', '已退押金',
             '用户申请退款数量', '原始价格', '减免价格', '需支付价格', '最后修改时间', '购买者用户昵称', '菜品名称', '下单时间', '支付类型1=微信，2=支付宝', '店铺名称');

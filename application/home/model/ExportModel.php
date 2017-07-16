@@ -10,8 +10,7 @@ namespace app\home\model;
 
 use think\model;
 use think\Db;
-
-class ExportModel extends model
+class ExportModel extends Model
 {
     //自定义初始化
     protected function initialize()
@@ -26,14 +25,19 @@ class ExportModel extends model
         return Db::query('select * from `zone`');
     }
 
-    public function sales($start = "2017-06-14", $end = "2017-06-14", $page = 0,$type = 0)
+    public function sales($start = "2017-06-14", $end = "2017-06-14", $page = 0)
     {
-        if ($page < 1)
-        {
-            $page = 1;
-        }
         $onePage = 10;//每页显示多少
-        $start1 = ($page - 1) * $onePage;//开始数据ID
+        $start1 = 0;
+        if($page != 'all')
+        {
+            if ($page < 1)
+            {
+                $page = 1;
+            }
+
+            $start1 = ($page - 1) * $onePage;//开始数据ID值
+        }
         $sql = "select b.orderdetailid AS \"订单详情id\",
         b.orderid AS \"订单id\",
         b.menuid AS \"菜品id\",
@@ -53,7 +57,7 @@ class ExportModel extends model
         $sqlWhere = " where a.orderid = b.orderid and a.paystatus = 1
         and (a.dateline >= '" . $start . " 00:00:00" . "' and a.dateline <= '" . $end . " 23:59:59" . "')
         and b.menuid = c.menuid and a.storeid = d.storeid ";
-        if ($type)
+        if ($page == 'all')
         {
             $sqllimt = "";
         }

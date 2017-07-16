@@ -26,7 +26,7 @@ class ExportModel extends model
         return Db::query('select * from `zone`');
     }
 
-    public function sales($start = "2017-06-14", $end = "2017-06-14", $page = 0)
+    public function sales($start = "2017-06-14", $end = "2017-06-14", $page = 0,$type = 0)
     {
         if ($page < 1)
         {
@@ -53,7 +53,7 @@ class ExportModel extends model
         $sqlWhere = " where a.orderid = b.orderid and a.paystatus = 1
         and (a.dateline >= '" . $start . " 00:00:00" . "' and a.dateline <= '" . $end . " 23:59:59" . "')
         and b.menuid = c.menuid and a.storeid = d.storeid ";
-        if ($page == 'alll')
+        if ($type)
         {
             $sqllimt = "";
         }

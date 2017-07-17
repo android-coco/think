@@ -9,20 +9,22 @@
  */
 namespace app\home\controller\web;
 
+use app\home\model\ExportModel;
 use think\Config;
 use PHPExcel_IOFactory;
 use PHPExcel;
+use think\Request;
 
 class ExportData
 {
     public function index($page = 1)
     {
         $currdData = date("Y-m-d");
-        $start = empty(\think\Request::instance()
+        $start = empty(Request::instance()
             ->has('start_time', 'get', true)) ? $currdData : input('start_time');
-        $end = empty(\think\Request::instance()
+        $end = empty(Request::instance()
             ->has('end_time', 'get', true)) ? $currdData : input('end_time');
-        $model = new \app\home\model\ExportModel();
+        $model = new ExportModel();
         $name = $model->sales($start, $end, $page);
         $data['info'] = $name['info'];
         $data['num'] = $name['num'];
@@ -37,18 +39,21 @@ class ExportData
     }
 
 
+    /**
+     * @return array
+     */
     public function ajaxData()
     {
         //http://www.thinkphp.net/home/web.ExportData/ajaxdata?page=79&start_time=2017-07-15&end_time=2017-07-15
         //http://www.thinkphp.net/home/web._export_data/ajaxdata?page=79&start_time=2017-07-15&end_time=2017-07-15
         $currdData = date("Y-m-d");
-        $start = empty(\think\Request::instance()
+        $start = empty(Request::instance()
             ->has('start_time', 'get', true)) ? $currdData : input('start_time');
-        $end = empty(\think\Request::instance()
+        $end = empty(Request::instance()
             ->has('end_time', 'get', true)) ? $currdData : input('end_time');
-        $page = empty(\think\Request::instance()
+        $page = empty(Request::instance()
             ->has('page', 'get', true)) ? 1 : input('page');
-        $model = new \app\home\model\ExportModel();
+        $model = new ExportModel();
         $data = $model->sales($start, $end, $page);
 
 //        $data['info'] = $name['info'];
@@ -65,11 +70,11 @@ class ExportData
     public function exportToData()
     {
         $currdData = date("Y-m-d");
-        $start = empty(\think\Request::instance()
+        $start = empty(Request::instance()
             ->has('start_time', 'get', true)) ? $currdData : input('start_time');
-        $end = empty(\think\Request::instance()
+        $end = empty(Request::instance()
             ->has('end_time', 'get', true)) ? $currdData : input('end_time');
-        $model = new \app\home\model\ExportModel();
+        $model = new ExportModel();
         $data = $model->sales($start, $end,'all');
 //        dump($data);die();
         $header = array('订单详情id', '订单id', '菜品id', '总数量', '已取餐数量', '已退押金',

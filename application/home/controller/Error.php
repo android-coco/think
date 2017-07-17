@@ -30,4 +30,5 @@ class Error
         //和$name这个城市相关的处理
         return '当前城市' . $name;
     }
+
 }

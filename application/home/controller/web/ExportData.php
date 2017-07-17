@@ -40,6 +40,7 @@ class ExportData
     public function ajaxData()
     {
         //http://www.thinkphp.net/home/web.ExportData/ajaxdata?page=79&start_time=2017-07-15&end_time=2017-07-15
+        //http://www.thinkphp.net/home/web._export_data/ajaxdata?page=79&start_time=2017-07-15&end_time=2017-07-15
         $currdData = date("Y-m-d");
         $start = empty(\think\Request::instance()
             ->has('start_time', 'get', true)) ? $currdData : input('start_time');
@@ -57,7 +58,6 @@ class ExportData
         $data['start'] = $start;
         $data['end'] = $end;
         $data['total_page'] = ceil(($data['num'] / 10));
-//        var_dump($data['info']);die();
         return $data;
     }
 

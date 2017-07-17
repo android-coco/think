@@ -185,42 +185,11 @@ defined('APP_PATH') OR exit('No direct script access allowed');
 
 
     });
-    //    function submitform() {
-    //        //提交表单
-    //        var start_time = $('#start_time').val();
-    //        var end_time = $('#end_time').val();
-    //        if (start_time > end_time) {
-    //            alert('开始时间不能大于结束时间');
-    //            return;
-    //        }
-    //
-    //        $("#form").submit();
-    //    }
-
     $('#closeMe').click(function ()
     {
         var start = $('#start_time').val().replace(/-/g, "/");
         var end = $('#end_time').val().replace(/-/g, "/");
-        window.location.href = '{$base_url}home/web.ExportData/exportToData?start_time=' + start + '&end_time=' + end;
-    });
-    $('#go').click(function ()
-    {
-        //$('#consignee').val().trim()
-        var page = $('#gopage').val().trim();
-        var totalpage = parseInt($("#totalpage").text());
-        if (page != "" && !isNaN(page))
-        {
-            if (page > totalPage)
-            {
-                alert("页面超出范围！");
-                return;
-            }
-            window.location.href = '{$base_url}exportdata/lists/' + page + '?start_time=<?php echo $start;?>&end_time=<?php echo $end;?>';
-        } else
-        {
-            alert("请输入正确的页面值！");
-        }
-
+        window.location.href = '{$base_url}home/web.export_data/exportToData?start_time=' + start + '&end_time=' + end;
     });
 
     function getdata(type)
@@ -233,19 +202,19 @@ defined('APP_PATH') OR exit('No direct script access allowed');
         switch (type)
         {
             case 1://首页 搜索
-                url = '{$base_url}home/web.ExportData/ajaxdata/?page=1&start_time=' + start + '&end_time=' + end;
+                url = '{$base_url}home/web.export_data/ajaxdata/?page=1&start_time=' + start + '&end_time=' + end;
                 break
             case 2://上页
                 var curr_page = (prepage - 1) <= 1 ? 1 : (prepage - 1);
-                url = '{$base_url}home/web.ExportData/ajaxdata/?page=' + curr_page + '&start_time=' + start + '&end_time=' + end;
+                url = '{$base_url}home/web.export_data/ajaxdata/?page=' + curr_page + '&start_time=' + start + '&end_time=' + end;
                 break
             case 3://下页
                 var curr_page = (prepage + 1) >= totalpage ? totalpage : (prepage + 1);
                 console.log(prepage +"   " +  totalpage + " " + curr_page);
-                url = '{$base_url}home/web.ExportData/ajaxdata/?page=' + curr_page + '&start_time=' + start + '&end_time=' + end;
+                url = '{$base_url}home/web.export_data/ajaxdata/?page=' + curr_page + '&start_time=' + start + '&end_time=' + end;
                 break
             case 4://尾页
-                url = '{$base_url}home/web.ExportData/ajaxdata/?page=' + totalpage + '&start_time=' + start + '&end_time=' + end;
+                url = '{$base_url}home/web.export_data/ajaxdata/?page=' + totalpage + '&start_time=' + start + '&end_time=' + end;
                 break
             case 6://go
                 var page = $('#gopage').val().trim();
@@ -257,7 +226,7 @@ defined('APP_PATH') OR exit('No direct script access allowed');
                         alert("页面超出范围！");
                         return;
                     }
-                    url = '{$base_url}home/web.ExportData/ajaxdata/?page=' + page + '&start_time=' + start + '&end_time=' + end;
+                    url = '{$base_url}home/web.export_data/ajaxdata/?page=' + page + '&start_time=' + start + '&end_time=' + end;
                 } else
                 {
                     alert("请输入正确的页面值！");

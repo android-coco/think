@@ -8,7 +8,7 @@
 
 namespace app\home\model;
 
-use think\model;
+use think\Model;
 use think\Db;
 class ExportModel extends Model
 {

@@ -89,7 +89,9 @@ class Loader
         }
 
         // 查找 PSR-4 fallback dirs
+//        var_dump(self::$fallbackDirsPsr4);
         foreach (self::$fallbackDirsPsr4 as $dir) {
+//            var_dump($dir . DS . $logicalPathPsr4);die;
             if (is_file($file = $dir . DS . $logicalPathPsr4)) {
                 return $file;
             }

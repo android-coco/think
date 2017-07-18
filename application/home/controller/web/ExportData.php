@@ -13,12 +13,21 @@ use app\home\model\ExportModel;
 use think\Config;
 use PHPExcel_IOFactory;
 use PHPExcel;
+use RedisDriver;
+use B;
 use think\Request;
 
 class ExportData
 {
+
+
     public function index($page = 1)
     {
+//        var_dump(class_exists('RedisDriver'));die;
+        $redisDriver = new RedisDriver();
+//        $x = new B\B();
+//        $x->test();die;
+        $redisDriver ->connect();
         $currdData = date("Y-m-d");
         $start = empty(Request::instance()
             ->has('start_time', 'get', true)) ? $currdData : input('start_time');

@@ -11,8 +11,6 @@ namespace app\home\controller\web;
 
 use app\home\model\ExportModel;
 use think\Config;
-use PHPExcel_IOFactory;
-use PHPExcel;
 use RedisDriver;
 use B;
 use think\Request;

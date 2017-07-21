@@ -19,7 +19,6 @@ if(!function_exists('excel_download'))
         {
             die('This example should only be run from a Web Browser');
         }
-
         // 设置文件内容
         $objPHPExcel->getProperties()
             ->setCreator("Maarten Balliauw")

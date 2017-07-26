@@ -1,7 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: yhlyl
+ * Date: 2017/7/20
+ * Time: 21:51
+ */
+
+
+
 class RedisDriver
 {
-
     protected $redis; // redis对象
     protected $ip = REDIS_HOST; // redis服务器ip地址
     protected $port = REDIS_POST; // redis服务器端口
@@ -224,5 +232,4 @@ class RedisDriver
         }
         return !isset($arr) ? $obj : $arr;
     }
-
 }

@@ -1,6 +1,5 @@
-<?php
-namespace B;
-/**
+                            <?php
+/**             nb
  * Created by PhpStorm.
  * User: 38314
  * Date: 2017/7/18

@@ -22,8 +22,8 @@ class ExportData
     {
         //var_dump(class_exists('RedisDriver'));di$e;
         $this->redisDriver = new RedisDriver();
-//        $x = new B\B();
-//        $x->test();die;
+        $x = new B();
+        $x->test();
         $this->redisDriver ->connect();
     }
 

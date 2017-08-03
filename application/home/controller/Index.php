@@ -1,9 +1,12 @@
 <?php
 namespace app\home\controller;
-//页面渲染模板
-use think\View;
 
-class Index
+use think\Controller;
+use think\View;
+//页面渲染模板
+use think\Request;
+
+class Index extends Controller
 {
     public function index()
     {
@@ -29,10 +32,9 @@ class Index
     public function hello1($name = 'thinkphp')
     {
         echo $name. '<br/>';
-        echo \think\Request::instance()->has('name','get',true). '<br/>';
-        dump(empty(\think\Request::instance()->has('name','get',true))). '<br/>';
-        echo input("?get.name"). '<br/>';
-        $request = \think\Request::instance();
+        dump(empty(Request::instance()->has('name','get',true))). '<br/>';
+        echo input("name"). '<br/>';
+        $request = Request::instance();
         // 获取当前域名
         echo 'domain: ' . $request->domain() . '<br/>';
         // 获取当前入口文件
@@ -59,12 +61,14 @@ class Index
     {
         $view = new View();
         $name = ['name'=>'myview'];
+        //继承 Controller $this->fetch('index',$name);//php
+        //不继承 $view->fetch('index',$name);//html
         return $view->fetch('index',$name);
     }
 
     public function myview1()
     {
         $name = ['name'=>'myview1'];
-        return view('index',$name);
+        return view('index',$name,[]);//php
     }
 }

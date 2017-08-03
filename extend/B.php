@@ -1,5 +1,6 @@
-                            <?php
-/**             nb
+<?php
+
+/**
  * Created by PhpStorm.
  * User: 38314
  * Date: 2017/7/18

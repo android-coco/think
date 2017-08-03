@@ -17,7 +17,7 @@ class Demo extends Controller
     public function index()
     {
         $User = new User; //实例化User对象
-        $data = [];
+        $data = [1,2,3];
         $result = $User->save($data);
         if($result){
             //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
@@ -35,7 +35,7 @@ class Demo extends Controller
         //$this->redirect('http://thinkphp.cn/blog/2',301);
         //$this->redirect('http://thinkphp.cn/blog/2',302);
         //重定向到Index模块的Index操作
-        $this->redirect('Index/Index/index', ['cate_idQ' => '你好PHP'])->remember();
+        $this->redirect('Index/Index/index', ['cate_id' => '你好PHP'])->remember();
         //使用redirect助手函数还可以实现更多的功能，例如可以记住当前的URL后跳转
         //redirect('News/category')->remember();
         //需要跳转到上次记住的URL的时候使用：

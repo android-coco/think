@@ -17,7 +17,7 @@ define('APP_PATH', __DIR__ . '/../application/');
  * redis配置
  */
 defined('ROOT_PATH') or define('REDIS_HOST','127.0.0.1',true);
-defined('ROOT_PATH') or define('REDIS_POST','6379',true);
+defined('ROOT_PATH') or define('REDIS_POST','6388',true);
 defined('ROOT_PATH') or define('REDIS_PWD','Fitcom2015jiankangyun123456QWERTyuiop',true);
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';

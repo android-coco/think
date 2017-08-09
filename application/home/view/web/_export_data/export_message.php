@@ -89,9 +89,14 @@ defined('APP_PATH') OR exit('No direct script access allowed');
             <th>
                 减免价格
             </th>
-
             <th>
                 需支付价格
+            </th>
+            <th>
+                支付总金额
+            </th>
+            <th>
+                退入饭卡总金额
             </th>
             <th>
                 最后修改时间
@@ -126,6 +131,8 @@ defined('APP_PATH') OR exit('No direct script access allowed');
                 <td><?php echo $value['原始价格']; ?></td>
                 <td><?php echo $value['减免价格']; ?></td>
                 <td><?php echo $value['需支付价格']; ?></td>
+                <td><?php echo $value['支付总金额']; ?></td>
+                <td><?php echo $value['退入饭卡总金额']; ?></td>
                 <td><?php echo $value['最后修改时间']; ?></td>
                 <td><?php echo $value['购买者用户昵称']; ?></td>
                 <td><?php echo $value['菜品名称']; ?></td>
@@ -251,7 +258,7 @@ defined('APP_PATH') OR exit('No direct script access allowed');
 //            }
             for (var i = 0; i < resArr.length; i++)
             {
-                console.log(resArr[i].订单详情id);
+                //console.log(resArr[i].订单详情id);
                 html += "<tr> " +
                     "<td>" + resArr[i].订单详情id + "</td> " +
                     "<td>" + resArr[i].订单id + "</td> " +
@@ -263,6 +270,8 @@ defined('APP_PATH') OR exit('No direct script access allowed');
                     "<td>" + resArr[i].原始价格 + "</td>" +
                     "<td>" + resArr[i].减免价格 + "</td>" +
                     "<td>" + resArr[i].需支付价格 + "</td>" +
+                    "<td>" + resArr[i].支付总金额 + "</td>" +
+                    "<td>" + resArr[i].退入饭卡总金额 + "</td>" +
                     "<td>" + resArr[i].最后修改时间 + "</td>" +
                     "<td>" + resArr[i].购买者用户昵称 + "</td>" +
                     "<td>" + resArr[i].菜品名称 + "</td>" +

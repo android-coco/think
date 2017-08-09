@@ -52,6 +52,8 @@ class ExportModel extends Model
             b.originalprice as "原始价格",
             b.minusprice as "减免价格",
             b.payprice as "需支付价格",
+            (b.amount * b.payprice) AS "支付总金额",
+            ((b.amount - b.takeamount) * b.payprice) AS "退入饭卡总金额",
             b.updatetime as "最后修改时间",
             a.username as "购买者用户昵称",
             c.menuname as "菜品名称",
@@ -85,6 +87,8 @@ class ExportModel extends Model
             b.originalprice as "原始价格",
             b.minusprice as "减免价格",
             b.payprice as "需支付价格",
+            (b.amount * b.payprice) AS "支付总金额",
+            ((b.amount - b.takeamount) * b.payprice) AS "退入饭卡总金额",
             b.updatetime as "最后修改时间",
             a.username as "购买者用户昵称",
             c.menuname as "菜品名称",
@@ -97,7 +101,7 @@ class ExportModel extends Model
             ->where('a.paystatus', '1')
             ->where("a.dateline>=:start and a.dateline>=:end")
             ->bind(['start' => [$start, \PDO::PARAM_INT], 'end' => $end]);
-        $dataAll =  $query1->count();
+        $dataAll = $query1->count();
 //        $sql = "select b.orderdetailid AS \"订单详情id\",
 //        b.orderid AS \"订单id\",
 //        b.menuid AS \"菜品id\",
